@@ -23,12 +23,6 @@ jobs:
           git commit -m "chore: update guestbook"
           git push
         fi
-    - name: Update metrics (classic)
-      uses: lowlighter/metrics@latest
-      with:
-        filename: metrics.classic.svg
-        token: ${{ secrets.METRICS_TOKEN }}
-        base: header, repositories, metadata
     - name: Update metrics (lines of code)
       uses: lowlighter/metrics@latest
       with:
