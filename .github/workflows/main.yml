@@ -2,6 +2,7 @@ name: Profile README
 
 on:
   schedule: [{cron: "0 0 * * *"}]  # every day at 00:00 UTC
+  workflow_dispatch:  # allows manual triggering
 
 jobs:
   main:
