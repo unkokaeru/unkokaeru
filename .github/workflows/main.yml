@@ -1,6 +1,7 @@
-name: Guestbook rendering
+name: Profile README
 
-on: [workflow_dispatch]
+on:
+  schedule: [{cron: "0 0 * * *"}]  # every day at 00:00 UTC
 
 jobs:
   main:
@@ -21,3 +22,37 @@ jobs:
           git commit -m "chore: update guestbook"
           git push
         fi
+    - name: Update metrics (classic)
+      uses: lowlighter/metrics@latest
+      with:
+        filename: metrics.classic.svg
+        token: ${{ secrets.METRICS_TOKEN }}
+        base: header, repositories
+        plugin_lines: yes
+    - name: Update metrics (lines of code)
+      uses: lowlighter/metrics@latest
+      with:
+        filename: metrics.plugin.lines.svg
+        token: ${{ secrets.METRICS_TOKEN }}
+        base: repositories
+        plugin_lines: yes
+        plugin_lines_delay: 30
+    - name: Update metrics (habits)
+      uses: lowlighter/metrics@latest
+      with:
+        filename: metrics.plugin.habits.charts.svg
+        token: ${{ secrets.METRICS_TOKEN }}
+        base: ""
+        plugin_habits: yes
+        plugin_habits_facts: yes
+        plugin_habits_charts: yes
+        config_timezone: Europe/London
+    - name: WakaTime
+      uses: lowlighter/metrics@latest
+      with:
+        filename: metrics.plugin.wakatime.svg
+        token: NOT_NEEDED
+        base: ""
+        plugin_wakatime: yes
+        plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
+        plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
