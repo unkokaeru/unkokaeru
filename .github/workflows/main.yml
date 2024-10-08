@@ -28,8 +28,7 @@ jobs:
       with:
         filename: metrics.classic.svg
         token: ${{ secrets.METRICS_TOKEN }}
-        base: header, repositories
-        plugin_lines: yes
+        base: header, repositories, metadata
     - name: Update metrics (lines of code)
       uses: lowlighter/metrics@latest
       with:
