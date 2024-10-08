@@ -45,7 +45,7 @@ jobs:
           quartz
           digital-garden
         config_timezone: Europe/London
-    - name: WakaTime
+    - name: Update metrics (wakatime)
       uses: lowlighter/metrics@latest
       with:
         filename: metrics.plugin.wakatime.svg
