@@ -1,0 +1,16 @@
+    steps:
+    - uses: actions/checkout@v4
+    - uses: joshmgross/guestbook@main
+      with:
+        issue: 1
+        approvers: |
+          unkokaeru
+    - name: Update guestbook
+      run: |
+        if [[ `git status --porcelain` ]]; then
+          git config --local user.email "actions@github.com"
+          git config --local user.name "${{ github.actor }}"
+          git add README.md
+          git commit -m "chore: update guestbook"
+          git push
+        fi
