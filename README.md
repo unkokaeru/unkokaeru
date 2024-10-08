@@ -2,6 +2,7 @@
 
 ![Lines of Code Metrics](/metrics.plugin.lines.svg)
 ![Habits Metrics](/metrics.plugin.habits.charts.svg)
+![Languages Metrics](/metrics.plugin.languages.svg)
 ![WakaTime Metrics](/metrics.plugin.wakatime.svg)
 ![Isocalendar Metrics](/metrics.plugin.isocalendar.svg)
 ![Anilsit Metrics](/metrics.plugin.anilist.svg)
