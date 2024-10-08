@@ -40,6 +40,10 @@ jobs:
         plugin_habits: yes
         plugin_habits_facts: yes
         plugin_habits_charts: yes
+        plugin_habits_skipped: |
+          bilbois
+          quartz
+          digital-garden
         config_timezone: Europe/London
     - name: WakaTime
       uses: lowlighter/metrics@latest
