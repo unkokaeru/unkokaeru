@@ -64,3 +64,11 @@ jobs:
         plugin_anilist_medias: anime
         plugin_anilist_sections: favorites, watching, characters
         plugin_anilist_limit: 1
+    - name: Update metric (isocalendar)
+      uses: lowlighter/metrics@latest
+      with:
+        filename: metrics.plugin.isocalendar.svg
+        token: ${{ secrets.METRICS_TOKEN }}
+        base: ""
+        plugin_isocalendar: yes
+
